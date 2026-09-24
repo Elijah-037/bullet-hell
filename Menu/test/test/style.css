@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'Pixels';
+    src: url('./fonts/Pixels.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Empêche le défilement */
+    position: fixed; /* Fixe la vue */
+    background-color: #000;
+    font-family: 'PixelFont', cursive;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #000022 0%, #1a0066 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centre le bouton verticalement */
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#ff00ff 2px, transparent 2px);
+    background-size: 50px 50px, 70px 70px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.2;
+    animation: twinkle 3s infinite;
+}
+
+.game-title {
+    position: absolute;
+    width: auto;
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    z-index: 10; /* S'assure que le titre est au-dessus des autres éléments */
+}
+
+.game-title h1 {
+    color: #fff;
+    font-size: 20rem !important;
+    text-shadow: 
+        2px 2px 0 #ff00ff,
+        -2px -2px 0 #00ffff;
+    text-align: center;
+    font-family: 'Pixels', 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    line-height: 0.6;
+    position: relative;
+    display: inline-block;
+    top: -15vh;
+    right: 20vw;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    position: absolute;
+    top: 55%; /* Position verticale */
+    left: 60%; /* Position horizontale */
+    transform: translate(-50%, -50%);
+}
+
+.pixel-button {
+    padding: 2rem 4rem;
+    font-family: 'PixelFont', cursive;
+    font-size: 1.4rem;
+    color: white;
+    background-color: #4a0080;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    image-rendering: pixelated;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    animation: pixelPulse 2s infinite;
+    border: 2px solid transparent;
+}
+
+/* Animation de pulsation pixel art */
+@keyframes pixelPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        border-color: transparent;
+    }
+    25% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
+    }
+    50% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        border-color: #ff00ff;
+    }
+    75% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        border-color: transparent;
+    }
+}
+
+/* Effet de scintillement pixel art */
+.pixel-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 45%, #ff00ff 50%, transparent 55%);
+    background-size: 300% 300%;
+    animation: pixelGlitter 4s infinite;
+    opacity: 0.3;
+}
+
+@keyframes pixelGlitter {
+    0% {
+        background-position: 100% 100%;
+        opacity: 0.1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        background-position: 0% 0%;
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        background-position: 100% 100%;
+        opacity: 0.1;
+    }
+}
+
+.pixel-button:hover {
+    background-color: #6a00b3;
+    transform: scale(1.1);
+    animation-play-state: paused;
+}
+
+/* Modification de l'effet d'étoiles */
+
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Ajustement des règles responsive en conservant les proportions */
+@media screen and (max-width: 1920px) {
+    .game-title h1 {
+        font-size: 15rem !important;
+        top: -15vh;
+        right: 20vw;
+    }
+    
+    .menu {
+        top: 55%;
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .game-title h1 {
+        font-size: 12rem !important;
+        top: -15vh;
+        right: 20vw;
+    }
+    
+    .menu {
+        top: 55%;
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .game-title h1 {
+        font-size: 10rem !important;
+        top: -15vh;
+        right: 20vw;
+    }
+    
+    .menu {
+        top: 55%;
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .game-title h1 {
+        font-size: 7rem !important;
+        top: -15vh;
+        right: 20vw;
+    }
+    
+    .menu {
+        top: 55%;
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .game-title h1 {
+        font-size: 4rem !important;
+        top: -8vh;
+        right: 15vw;
+    }
+    
+    .menu {
+        top: 55%;
+        left: 55%;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .container {
+        flex-direction: column; /* Garde la direction en colonne même en paysage */
+    }
+    
+    .game-title {
+        position: absolute;
+        top: 3vh;
+        right: 3vw;
+        width: auto;
+        margin: 0;
+    }
+    
+    .menu {
+        width: 30%;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .game-title h1 {
+        font-size: 4.5rem; /* Ajustement pour écrans en paysage bas */
+    }
+}
+
+/* Ajustements pour les écrans très larges */
+@media screen and (min-width: 1800px) {
+    .game-title h1 {
+        font-size: 7rem; /* Légère augmentation pour très grands écrans */
+    }
+}
+
+/* Ajustements pour les orientations */
+@media screen and (orientation: portrait) {
+    .container {
+        flex-direction: column;
+        background-position: center top; /* Déplace l'image vers le haut en mode portrait */
+    }
+} 

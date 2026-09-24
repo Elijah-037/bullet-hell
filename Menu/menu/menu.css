@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, #000022 0%, #fb478A 80%, #001000 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url(image/background.png);
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#ff00ff 2px, transparent 2px);
+    background-size: 50px 50px, 70px 70px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.2;
+    animation: twinkle 3s infinite;
+}
+
+#menu-container {
+    width: 60%;
+    max-width: 800px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+}
+
+.title h1 {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.title h1 img {
+    max-width: 80%;
+    height: auto;
+}
+
+.menu-options {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.selectable {
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.selectable img {
+    width: auto;
+    height: auto;
+}
+
+.selectable.selected {
+    transform: scale(1.05);
+    filter: brightness(1.3);
+}
+
+.arrow {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    transition: top 0.3s ease;
+    display: none;
+    animation: float 1s infinite ease-in-out;
+    z-index:10;
+}
+
+/* Animation pour la flèche */
+@keyframes float {
+    0% { transform: translateX(0px); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0px); }
+} 

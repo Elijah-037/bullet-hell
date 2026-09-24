@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kitten Invaders</title>
+    <link rel="stylesheet" href="accueil.css">
+    <style>
+        html {
+            zoom: 100%;
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="game-title">
+            <h1>Kitten</br>Invaders</h1>
+        </div>
+        
+        <div class="menu">
+            <button class="pixel-button" id="playButton">JOUER</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.getElementById('playButton');
+            const gameUrl = 'game.html'; // Remplacez par le chemin de la page de jeu
+            
+            // Fonction pour démarrer le jeu
+            function startGame() {
+                window.location.href = gameUrl;
+            }
+            
+            // Événement clic
+            playButton.addEventListener('click', function() {
+                startGame();
+            });
+            
+            // Événement clavier global
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    startGame();
+                }
+            });
+            
+            // Focus automatique sur le bouton au chargement
+            playButton.focus();
+        });
+    </script>
+</body>
+</html> 

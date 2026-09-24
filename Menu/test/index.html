@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitten Invaders</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('images/fond.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        .title-container {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: #ff9900;
+            text-shadow: 0 0 10px #ffcc00;
+        }
+        
+        .button {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .button:hover {
+            background-color: #ff9900;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1>Kitten Invaders</h1>
+        <a href="menu/menu.html" class="button">Jouer</a>
+    </div>
+
+    <script>
+        // Redirection automatique après un court délai (optionnel)
+        setTimeout(() => {
+            window.location.href = "menu/menu.html";
+        }, 3000); // Redirection après 3 secondes
+    </script>
+</body>
+</html> 
